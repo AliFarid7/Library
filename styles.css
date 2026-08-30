@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto,'Times New Roman', Times, serif;
+    color: #F9FAF8;
+    font-size: 24px;
+}
+
+body {
+    background-color: #1F2937;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.Bookcontainer{
+    display: flex;
+    /* flex-direction: columns; */
+    gap: 20px;
+    border: 2px solid rgb(240, 240, 240);
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+}
