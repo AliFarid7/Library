@@ -13,6 +13,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    
+}
+
+.contentContainer{
+    display: grid;
+    gap: 20px;
+
 }
 
 .Bookcontainer{
@@ -25,4 +32,45 @@ body {
 .book-card {
     display: flex;
     flex-direction: column;
+}
+
+button{
+    background-color: whitesmoke;
+    width: fit-content;
+    justify-self: center;
+    color: #1F2937;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-weight: bold;
+}
+
+dialog {
+    margin: auto;
+    background-color: rgb(65, 61, 61);
+    box-sizing: border-box;
+    padding: 2rem;
+    background-color: #1F2937;
+    color: black;
+}
+
+select, input{
+    background-color: #1F2937;
+}
+
+.dialog-header{
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+fieldset{
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+label, input{
+    margin-bottom: 15px;
+}
+
+.buttons-container{
+    text-align: center;
 }

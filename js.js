@@ -20,9 +20,9 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, false);
-addBookToLibrary("1984", "George Orwell", 328, false);
-addBookToLibrary("No Country for Old Men", "Cormac McCarthy", 309, true);
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "Not Read");
+addBookToLibrary("1984", "George Orwell", 328, "Not Read");
+addBookToLibrary("No Country for Old Men", "Cormac McCarthy", 309, "Read");
 
 function displayBooks() {
     myLibrary.forEach(function(book) {
@@ -47,3 +47,16 @@ function displayBooks() {
 }
 
 displayBooks();
+
+const newBookButton = document.querySelector(".addBookButton");
+const newBookDialog = document.querySelector("#add-book-dialog");
+const closeModel = document.querySelector("#close-modal");
+
+
+newBookButton.addEventListener('click', () => {
+    newBookDialog.showModal();
+});
+
+closeModel.addEventListener('click', () => {
+    newBookDialog.close();
+});

@@ -1,22 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="Bookcontainer">
-        <div>
-            <p>Book Title:</p>
-            <p>Book Author:</p>
-            <p>Pages Count:</p>
-            <p>Read Status:</p>
+    <div class="contentContainer">
+        <button class="addBookButton">New Book</button>
+        <dialog id="add-book-dialog">
+            <form action="/add-book" method="post">
+                <div class="form-container">
+                    <div class="dialog-header">Add New Book</div>
+                    <fieldset>
+                        <div>
+                            <label for="book_title">Book Title:</label>
+                            <input type="text" id="book_title" name="book_title" required maxlength="70">
+                        </div>
+                        <div>
+                            <label for="book_author">Book Author:</label>
+                            <input type="text" id="book_author" name="book_author" required maxlength="70">
+                        </div>
+                        <div>
+                            <label for="pages_count">Pages Count:</label>
+                            <input type="text" id="pages_count" name="pages_count" required maxlength="10" pattern="[0-9]*">
+                        </div>
+                        <div>
+                            <label for="read_status">Read Status:</label>
+                            <select id="read-status">
+                                <option value="read">Read</option>
+                                <option value="not read">Not Read</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="buttons-container">
+                    <button type="submit">Add Book</button>
+                    <button id="close-modal">Close</button>
+                </div>
+            </form>
+        </dialog>
+        <div class="Bookcontainer">
+            <div>
+                <p>Book Title:</p>
+                <p>Book Author:</p>
+                <p>Pages Count:</p>
+                <p>Read Status:</p>
+            </div>
         </div>
     </div>
 
     <script src="./js.js"></script>
 </body>
-</html>
 
+</html>
