@@ -12,7 +12,7 @@
     <div class="contentContainer">
         <button class="addBookButton">New Book</button>
         <dialog id="add-book-dialog">
-            <form action="/add-book" method="post">
+            <form method="post">
                 <div class="form-container">
                     <div class="dialog-header">Add New Book</div>
                     <fieldset>
@@ -38,18 +38,12 @@
                     </fieldset>
                 </div>
                 <div class="buttons-container">
-                    <button type="submit">Add Book</button>
+                    <button type="submit" id="add-book-button">Add Book</button>
                     <button id="close-modal">Close</button>
                 </div>
             </form>
         </dialog>
         <div class="Bookcontainer">
-            <div>
-                <p>Book Title:</p>
-                <p>Book Author:</p>
-                <p>Pages Count:</p>
-                <p>Read Status:</p>
-            </div>
         </div>
     </div>
 
