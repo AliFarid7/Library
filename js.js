@@ -31,6 +31,7 @@ function displayBooks() {
     myLibrary.forEach(function (book) {
         const div = document.createElement("div");
         div.classList.add("book-card");
+        div.dataset.id = book.id;
         const p1 = document.createElement("p");
         p1.textContent = book.title;
         div.appendChild(p1);
@@ -44,23 +45,43 @@ function displayBooks() {
         p4.textContent = book.read;
         div.appendChild(p4);
         myBooksContainer.appendChild(div);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.addEventListener('click', () => {
+            const bookId = div.dataset.id;
+            const index = myLibrary.findIndex(book => book.id === bookId);
+            myLibrary.splice(index, 1);
+            displayBooks();
+        });
+
+        const changeReadStatusButton = document.createElement("button");
+        changeReadStatusButton.textContent = "Change Read Status";
+        changeReadStatusButton.addEventListener('click', () => {
+            book.toggleReadStatus();
+            displayBooks();
+        });
+
+        if (!isNaN(book.pages)) { //To stop delete and toggleStatus button from showing up in first column
+            div.appendChild(deleteButton);
+            div.appendChild(changeReadStatusButton);
+        }
     });
-}
+};
+
 
 displayBooks();
 
 const newBookButton = document.querySelector(".addBookButton");
 const newBookDialog = document.querySelector("#add-book-dialog");
-const closeModel = document.querySelector("#close-modal");
+const closeModal = document.querySelector("#close-modal");
 const addBookButton = document.querySelector("#add-book-button");
-
-
 
 newBookButton.addEventListener('click', () => {
     newBookDialog.showModal();
 });
 
-closeModel.addEventListener('click', () => {
+closeModal.addEventListener('click', () => {
     newBookDialog.close();
 });
 
@@ -74,3 +95,12 @@ addBookButton.addEventListener('click', (event) => {
     displayBooks();
     newBookDialog.close();
 });
+
+Book.prototype.toggleReadStatus = function () {
+    if (this.read === "Read") {
+        this.read = "Not Read";
+    }
+    else {
+        this.read = "Read";
+    }
+}
